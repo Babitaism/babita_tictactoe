@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<head>
+  <title>
+    Babita's Tic-Tac-Toe
+  </title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div id = "messageSection"> <strong> </strong></div> 
+  <div id = "Main" >
+    <p><strong>First player starts as Player X<br></br> And <br></br> Second Player as Player 0 </strong> </p>   
+</div>
+<p>Choose your Matrix:</p>
+<p id = "result"></p>
+<form>
+  <input type="radio" id="matrix3" name="chooseMatrix" value="3*3">
+  <label for="matrix3">3*3</label><br>
+  <input type="radio" id="matrix5" name="chooseMatrix" value="5*5">
+  <label for="matrix5">5*5</label><br>
+  <input type="radio" id="javascript" name="chooseMatrix" value="7*7">
+  <label for="javascript">7*7</label><br><br>
+  <input type="button" id = "sub" value="Submit" onclick = "submit()" > 
+</form> 
+<form method="POST" action='babita_first_game' id='babita_first_game'></form>
+<br></br>
+<button id = "btn" onclick="restart()">Restart</button>
+<button id = "btn" onclick="start()">Start</button>
+<button id = "dash" onclick="window.open('/getDashboard')">Dashboard</button>
+<br></br>
+</body>
+<script>
+function submit(){
+  console.log("hi")
+  // let val = document.getElementById("sub").value
+  // document.getElementById("result").innerHTML = "Matrix selected: <b>" + `${val}` + "</b>";
+}
+
+
+ $(document).ready(function(){
+  $("input").focus(function(){
+    $(this).css("background-color", "yellow");
+  });
+  $("input").blur(function(){
+    $(this).css("background-color", "green");
+  });
+});
+
+let turn = 1
+let win
+let pla1,pla2
+function ticTacToe(clickedId){ 
+if(clickedId.innerHTML != "") return
+ if(turn==1){
+  clickedId.innerHTML = "X"
+  document.getElementById("messageSection").innerHTML = `${pla2} turn`
+  turn = 2
+ }
+ else if(turn==2){
+  clickedId.innerHTML = "0"
+  document.getElementById("messageSection").innerHTML = `${pla1} turn`
+  turn = 1
+ }
+}
+
+function restart(){
+  let arrElem = document.getElementsByClassName("box")
+for(i in arrElem){
+  arrElem[i].innerHTML=""
+}
+}
+
+
+
+  </script>
+
+
+</html>
