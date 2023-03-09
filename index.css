@@ -36,6 +36,10 @@ h1 {
         margin-left: auto;
         margin-right: auto;     
     }
+    #dash{
+        margin-left: 97px;
+        margin-top: -19px;    
+    }
     table, td, tr {
         border: 1px solid;
           line-height: normal;
